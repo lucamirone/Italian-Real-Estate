@@ -678,7 +678,7 @@ button {
 
 .timeline {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px;
   margin-top: 34px;
   background: var(--line);
@@ -686,6 +686,10 @@ button {
 }
 
 .timeline article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 220px;
+  gap: 26px;
+  align-items: center;
   min-height: 250px;
   padding: 28px;
   background: var(--white);
@@ -693,6 +697,67 @@ button {
 
 .timeline h3 {
   margin-top: 14px;
+}
+
+.timeline-sketch {
+  justify-self: end;
+  width: min(100%, 220px);
+  color: var(--navy);
+}
+
+.timeline-sketch svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.timeline-sketch .paper-fill {
+  fill: #fbf7ef;
+  stroke: rgba(184, 138, 78, 0.45);
+  stroke-width: 1.4;
+}
+
+.timeline-sketch .gold-fill {
+  fill: rgba(184, 138, 78, 0.18);
+  stroke: rgba(184, 138, 78, 0.76);
+  stroke-width: 1.4;
+}
+
+.timeline-sketch .rust-fill {
+  fill: var(--terracotta);
+}
+
+.timeline-sketch .ink,
+.timeline-sketch .gold,
+.timeline-sketch .rust {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.timeline-sketch .ink {
+  stroke: rgba(13, 31, 49, 0.78);
+  stroke-width: 2;
+}
+
+.timeline-sketch .gold {
+  stroke: rgba(184, 138, 78, 0.84);
+  stroke-width: 2;
+}
+
+.timeline-sketch .rust {
+  stroke: var(--terracotta);
+  stroke-width: 2;
+}
+
+.timeline-sketch .sketch-label {
+  fill: rgba(13, 31, 49, 0.62);
+  font-family: var(--sans);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: uppercase;
 }
 
 .form-section {
@@ -1205,6 +1270,15 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
+  .timeline article {
+    grid-template-columns: minmax(0, 1fr) 138px;
+    gap: 20px;
+  }
+
+  .timeline-sketch {
+    width: 156px;
+  }
+
   .region-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -1321,6 +1395,17 @@ button {
   .choice-grid.three,
   .progress-list {
     grid-template-columns: 1fr;
+  }
+
+  .timeline article {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    min-height: 0;
+  }
+
+  .timeline-sketch {
+    justify-self: start;
+    width: min(100%, 210px);
   }
 
   .credibility-band article {
