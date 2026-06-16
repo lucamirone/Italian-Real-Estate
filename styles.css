@@ -581,10 +581,12 @@ button {
 }
 
 .property-image {
+  display: block;
   width: calc(100% + 52px);
   max-width: none;
-  height: 168px;
+  height: 176px;
   margin: 0 -26px 24px;
+  background: var(--ivory);
   object-fit: cover;
   object-position: center;
   border-bottom: 1px solid var(--line);
@@ -1344,6 +1346,11 @@ button {
   .buyer-form,
   .success-state {
     padding: 24px;
+  }
+
+  .property-image {
+    height: 148px;
+    margin-bottom: 20px;
   }
 
   .form-shell {
