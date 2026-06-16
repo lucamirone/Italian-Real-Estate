@@ -678,39 +678,41 @@ button {
 
 .timeline {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1px;
-  margin-top: 34px;
-  background: var(--line);
-  border: 1px solid var(--line);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-top: 24px;
 }
 
 .timeline article {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) clamp(240px, 28vw, 380px);
-  gap: clamp(2rem, 4vw, 5rem);
-  align-items: center;
-  min-height: 280px;
-  padding: 28px;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto;
+  gap: 12px;
+  align-content: start;
+  min-height: 0;
+  padding: clamp(1.1rem, 1.7vw, 1.45rem);
   background: var(--white);
+  border: 1px solid var(--line);
 }
 
 .timeline h3 {
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .timeline-sketch {
   display: flex;
   align-items: center;
   justify-content: center;
-  justify-self: end;
-  width: min(100%, 380px);
+  justify-self: center;
+  align-self: end;
+  width: min(100%, 160px);
+  margin-top: auto;
 }
 
 .timeline-sketch img {
   display: block;
   width: 100%;
-  max-width: 380px;
+  max-width: 160px;
   height: auto;
 }
 
@@ -1154,6 +1156,12 @@ button {
   }
 }
 
+@media (max-width: 1024px) {
+  .timeline {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 940px) {
   .site-header {
     grid-template-columns: 1fr auto;
@@ -1224,17 +1232,13 @@ button {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
-  .timeline {
-    grid-template-columns: 1fr;
-  }
-
   .timeline article {
-    grid-template-columns: minmax(0, 1fr) minmax(220px, 0.38fr);
-    gap: 28px;
+    grid-template-columns: 1fr;
+    gap: 12px;
   }
 
   .timeline-sketch {
-    width: min(100%, 320px);
+    width: min(100%, 160px);
   }
 
   .region-grid {
@@ -1357,13 +1361,18 @@ button {
 
   .timeline article {
     grid-template-columns: 1fr;
-    gap: 18px;
+    gap: 14px;
     min-height: 0;
+    padding: 1.25rem;
   }
 
   .timeline-sketch {
     justify-self: center;
-    width: min(100%, 320px);
+    width: min(100%, 210px);
+  }
+
+  .timeline-sketch img {
+    max-width: 210px;
   }
 
   .credibility-band article {
