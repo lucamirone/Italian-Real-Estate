@@ -327,7 +327,6 @@ button {
 }
 
 .credibility-band span,
-.timeline span,
 .section-label,
 .form-kicker {
   color: var(--terracotta-dark);
@@ -347,7 +346,7 @@ button {
 .card p,
 .region-card p,
 .property-card p,
-.timeline p,
+.buyer-journey-description,
 .legal-sections p,
 .site-footer p {
   color: var(--muted);
@@ -424,7 +423,7 @@ button {
 .property-card h3,
 .approach-panel h3,
 .uhnw-panel h3,
-.timeline h3,
+.buyer-journey-title,
 .success-state h3 {
   margin: 0;
   font-family: var(--serif);
@@ -676,44 +675,114 @@ button {
   background: #f7f3eb;
 }
 
-.timeline {
+.buyer-journey-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(1rem, 2vw, 1.5rem);
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: clamp(12px, 1vw, 16px);
+  align-items: stretch;
   margin-top: 24px;
 }
 
-.timeline article {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-  gap: 12px;
-  align-content: start;
-  min-height: 0;
-  padding: clamp(1.1rem, 1.7vw, 1.45rem);
-  background: var(--white);
-  border: 1px solid var(--line);
-}
-
-.timeline h3 {
-  margin-top: 12px;
-}
-
-.timeline-sketch {
+.buyer-journey-card {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  justify-self: center;
-  align-self: end;
-  width: min(100%, 160px);
-  margin-top: auto;
+  flex-direction: column;
+  height: clamp(374px, 28vw, 418px);
+  padding: 24px 22px 0;
+  overflow: hidden;
+  background: #fffdf8;
+  border: 1px solid rgba(181, 166, 139, 0.34);
+  border-radius: 6px;
+  box-shadow: 0 12px 32px rgba(16, 36, 56, 0.045);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
-.timeline-sketch img {
+@media (hover: hover) and (pointer: fine) {
+  .buyer-journey-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(169, 135, 69, 0.38);
+    box-shadow: 0 16px 38px rgba(16, 36, 56, 0.075);
+  }
+}
+
+.buyer-journey-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-height: 0;
+}
+
+.buyer-journey-icon {
+  display: grid;
+  place-items: center;
+  width: 31px;
+  height: 31px;
+  margin-bottom: 15px;
+  color: var(--gold);
+}
+
+.buyer-journey-icon svg {
   display: block;
   width: 100%;
-  max-width: 160px;
-  height: auto;
+  height: 100%;
+}
+
+.buyer-journey-icon circle,
+.buyer-journey-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.25;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.buyer-journey-title {
+  max-width: 100%;
+  font-size: clamp(1.05rem, 1.18vw, 1.28rem);
+  line-height: 1.1;
+}
+
+.buyer-journey-divider {
+  display: block;
+  width: 30px;
+  height: 1px;
+  margin-top: 14px;
+  background: var(--gold);
+}
+
+.buyer-journey-description {
+  margin: 18px 0 0;
+  color: var(--muted);
+  font-size: clamp(0.78rem, 0.86vw, 0.9rem);
+  line-height: 1.52;
+}
+
+.buyer-journey-image {
+  position: relative;
+  flex: 0 0 clamp(150px, 11.6vw, 176px);
+  width: calc(100% + 44px);
+  margin-top: auto;
+  margin-right: -22px;
+  margin-left: -22px;
+  overflow: hidden;
+  background: #f1e9dc;
+}
+
+.buyer-journey-image::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  z-index: 1;
+  height: 48px;
+  background: linear-gradient(180deg, #fbf7ef 0%, rgba(251, 247, 239, 0) 100%);
+  pointer-events: none;
+}
+
+.buyer-journey-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.92) contrast(0.97);
 }
 
 .form-section {
@@ -1154,11 +1223,17 @@ button {
   .region-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
-}
 
-@media (max-width: 1024px) {
-  .timeline {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .buyer-journey-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .buyer-journey-card {
+    height: 398px;
+  }
+
+  .buyer-journey-image {
+    flex-basis: 168px;
   }
 }
 
@@ -1227,18 +1302,8 @@ button {
   .who-grid,
   .card-grid,
   .property-grid,
-  .timeline,
   .legal-sections {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .timeline article {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  .timeline-sketch {
-    width: min(100%, 160px);
   }
 
   .region-grid {
@@ -1349,7 +1414,7 @@ button {
   .who-grid,
   .card-grid,
   .property-grid,
-  .timeline,
+  .buyer-journey-grid,
   .legal-sections,
   .region-grid,
   .field-grid,
@@ -1359,20 +1424,40 @@ button {
     grid-template-columns: 1fr;
   }
 
-  .timeline article {
-    grid-template-columns: 1fr;
-    gap: 14px;
+  .buyer-journey-grid {
+    gap: 16px;
+  }
+
+  .buyer-journey-card {
+    height: auto;
     min-height: 0;
-    padding: 1.25rem;
+    padding: 20px 18px 0;
   }
 
-  .timeline-sketch {
-    justify-self: center;
-    width: min(100%, 210px);
+  .buyer-journey-icon {
+    width: 29px;
+    height: 29px;
+    margin-bottom: 12px;
   }
 
-  .timeline-sketch img {
-    max-width: 210px;
+  .buyer-journey-title {
+    font-size: 1.22rem;
+  }
+
+  .buyer-journey-divider {
+    margin-top: 12px;
+  }
+
+  .buyer-journey-description {
+    margin-top: 14px;
+    font-size: 0.88rem;
+  }
+
+  .buyer-journey-image {
+    flex-basis: 148px;
+    width: calc(100% + 36px);
+    margin-right: -18px;
+    margin-left: -18px;
   }
 
   .credibility-band article {
@@ -1419,6 +1504,106 @@ button {
 
   .option-card {
     min-height: 54px;
+  }
+}
+
+@media (max-width: 767px) {
+  .buyer-journey-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+
+  .buyer-journey-card {
+    display: grid;
+    grid-template-columns: minmax(0, 48%) minmax(0, 52%);
+    height: clamp(218px, 59vw, 256px);
+    min-height: 0;
+    max-height: 260px;
+    padding: 0;
+    background: #fffdf8;
+    border-radius: 6px;
+  }
+
+  .buyer-journey-copy {
+    justify-content: center;
+    min-width: 0;
+    padding: 22px 16px;
+    background: #fffdf8;
+  }
+
+  .buyer-journey-icon {
+    width: 34px;
+    height: 34px;
+    margin: 0;
+  }
+
+  .buyer-journey-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .buyer-journey-divider {
+    width: 54px;
+    margin-top: 26px;
+  }
+
+  .buyer-journey-description {
+    margin-top: 22px;
+    font-size: clamp(0.94rem, 4.2vw, 1.06rem);
+    line-height: 1.45;
+  }
+
+  .buyer-journey-image {
+    position: relative;
+    flex: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    min-height: 0;
+  }
+
+  .buyer-journey-image::before {
+    inset: 0 auto 0 0;
+    width: 38px;
+    height: auto;
+    background: linear-gradient(90deg, #fffdf8 0%, rgba(255, 253, 248, 0) 100%);
+  }
+
+  .buyer-journey-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transform: scale(1.01);
+    filter: saturate(0.84) contrast(0.94) blur(0.2px);
+  }
+}
+
+@media (max-width: 380px) {
+  .buyer-journey-copy {
+    padding: 18px 14px;
+  }
+
+  .buyer-journey-icon {
+    width: 31px;
+    height: 31px;
+  }
+
+  .buyer-journey-divider {
+    width: 48px;
+    margin-top: 20px;
+  }
+
+  .buyer-journey-description {
+    margin-top: 18px;
+    font-size: 0.92rem;
+    line-height: 1.4;
   }
 }
 
