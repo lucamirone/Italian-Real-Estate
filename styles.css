@@ -750,18 +750,13 @@ button {
   min-height: 395px;
 }
 
-.complexity {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
+.ownership-complexity-badge {
+  display: block;
+  width: min(100%, 420px);
+  max-width: 100%;
+  height: auto;
   margin-top: auto;
-  padding: 8px 10px;
-  color: var(--navy);
-  background: #f3eadb;
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  font-size: 0.83rem;
-  font-weight: 750;
+  padding-top: 1rem;
 }
 
 .process-section {
@@ -1543,6 +1538,11 @@ button {
 
   .buyer-journey-grid {
     gap: 16px;
+  }
+
+  .ownership-complexity-badge {
+    width: min(100%, 320px);
+    padding-top: 0.85rem;
   }
 
   .buyer-journey-card {

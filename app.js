@@ -65,6 +65,21 @@ const propertyTypes = [
   ["Boutique hospitality properties", "Lifestyle-income, family office, and operating-business buyers.", "Brand potential, guest experience, food, wine, design, and place.", "Licenses, operations, staffing, tax, zoning, financials, renovation, and compliance.", "High", "Attorney, accountant, tax advisor, hospitality consultant, technical advisors.", "assets/property-boutique-hospitality-italy.jpg", "Boutique Italian hospitality courtyard with breakfast tables, reception archway, and potted citrus"]
 ];
 
+const ownershipComplexityBadges = {
+  low: {
+    src: "assets/ownership-complexity-low-v2.svg",
+    alt: "Ownership complexity: Low"
+  },
+  medium: {
+    src: "assets/ownership-complexity-medium-v2.svg",
+    alt: "Ownership complexity: Medium"
+  },
+  high: {
+    src: "assets/ownership-complexity-high-v2.svg",
+    alt: "Ownership complexity: High"
+  }
+};
+
 const options = {
   preferredContact: ["Email", "Phone", "WhatsApp", "Zoom"],
   buyerCategory: [
@@ -518,9 +533,16 @@ function renderStaticCards() {
         ${detail("Common due diligence questions", questions)}
         ${detail("Recommended professional verification", verification)}
       </dl>
-      <span class="complexity">Ownership complexity: ${escapeHtml(complexity)}</span>
+      ${ownershipComplexityBadge(complexity)}
     </article>
   `).join("");
+}
+
+function ownershipComplexityBadge(complexity) {
+  const badge = ownershipComplexityBadges[complexity?.toLowerCase()];
+  if (!badge) return "";
+
+  return `<img class="ownership-complexity-badge" src="${escapeHtml(badge.src)}" alt="${escapeHtml(badge.alt)}" loading="lazy" decoding="async">`;
 }
 
 function detail(term, description) {
