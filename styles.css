@@ -311,22 +311,46 @@ button {
 
 .credibility-band {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   background: var(--ivory);
 }
 
 .credibility-band article {
-  padding: 30px 34px;
-  border-right: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: minmax(320px, 46%) minmax(0, 1fr);
+  min-height: clamp(260px, 27vw, 342px);
+  border-bottom: 1px solid rgba(16, 36, 56, 0.13);
 }
 
 .credibility-band article:last-child {
-  border-right: 0;
+  border-bottom: 0;
 }
 
-.credibility-band span,
+.credibility-media {
+  height: 100%;
+  min-height: 280px;
+  margin: 0;
+  overflow: hidden;
+  background: var(--line);
+}
+
+.credibility-media img {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  object-position: center;
+}
+
+.credibility-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(2rem, 4vw, 4rem);
+}
+
 .section-label,
 .form-kicker {
   color: var(--terracotta-dark);
@@ -336,10 +360,11 @@ button {
 }
 
 .credibility-band h2 {
-  margin: 10px 0 8px;
+  margin: 0 0 12px;
   font-family: var(--serif);
-  font-size: 1.14rem;
+  font-size: clamp(1.55rem, 2.25vw, 2.35rem);
   font-weight: 500;
+  line-height: 1.12;
 }
 
 .credibility-band p,
@@ -1212,14 +1237,6 @@ button {
     grid-template-columns: minmax(0, 1fr) minmax(360px, 0.9fr);
   }
 
-  .credibility-band {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .credibility-band article:nth-child(2) {
-    border-right: 0;
-  }
-
   .region-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
@@ -1325,6 +1342,32 @@ button {
 
   .footer-links {
     justify-items: start;
+  }
+}
+
+@media (max-width: 768px) {
+  .credibility-band article {
+    grid-template-columns: 1fr;
+    min-height: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .credibility-band article:last-child {
+    border-bottom: 0;
+  }
+
+  .credibility-media {
+    min-height: 220px;
+    max-height: 280px;
+  }
+
+  .credibility-content {
+    padding: 1.5rem 1.25rem 2rem;
+  }
+
+  .credibility-band h2 {
+    margin-bottom: 10px;
+    font-size: 1.62rem;
   }
 }
 
@@ -1458,15 +1501,6 @@ button {
     width: calc(100% + 36px);
     margin-right: -18px;
     margin-left: -18px;
-  }
-
-  .credibility-band article {
-    border-right: 0;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .credibility-band article:last-child {
-    border-bottom: 0;
   }
 
   .section {
