@@ -1064,7 +1064,7 @@ button {
   height: 100%;
   object-fit: cover;
   object-position: center;
-  filter: saturate(0.92) contrast(0.97);
+  filter: saturate(0.98) contrast(1.02);
 }
 
 .form-section {
@@ -2012,8 +2012,8 @@ button {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transform: scale(1.01);
-    filter: saturate(0.84) contrast(0.94) blur(0.2px);
+    transform: none;
+    filter: saturate(0.98) contrast(1.02);
   }
 }
 
