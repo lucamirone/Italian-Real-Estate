@@ -351,6 +351,146 @@ button {
   padding: clamp(2rem, 4vw, 4rem);
 }
 
+.advisory-approach-section {
+  background: var(--white);
+}
+
+.advisory-approach-inner {
+  display: grid;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(620px, 1.6fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: center;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.advisory-approach-copy {
+  max-width: 540px;
+}
+
+.advisory-approach-copy h2 {
+  margin: 0;
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(2.6rem, 4.8vw, 5.2rem);
+  font-weight: 500;
+  line-height: 0.98;
+}
+
+.section-divider {
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 28px 0;
+  background: var(--gold);
+}
+
+.advisory-approach-copy p:not(.section-label) {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.2vw, 1.16rem);
+  line-height: 1.68;
+}
+
+.advisory-approach-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(0.9rem, 1.4vw, 1.2rem);
+}
+
+.advisory-image-card {
+  position: relative;
+  min-height: clamp(270px, 21vw, 336px);
+  overflow: hidden;
+  border-radius: 16px;
+  background: var(--navy);
+  box-shadow: 0 18px 40px rgba(12, 34, 56, 0.12);
+  isolation: isolate;
+}
+
+.advisory-image-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 220ms ease;
+}
+
+.advisory-image-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(
+      to top,
+      rgba(4, 15, 27, 0.9) 0%,
+      rgba(4, 15, 27, 0.62) 36%,
+      rgba(4, 15, 27, 0.18) 68%,
+      rgba(4, 15, 27, 0.02) 100%
+    );
+}
+
+.advisory-card-overlay {
+  position: absolute;
+  right: clamp(1.1rem, 2vw, 1.5rem);
+  bottom: clamp(1.1rem, 2vw, 1.5rem);
+  left: clamp(1.1rem, 2vw, 1.5rem);
+  z-index: 2;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+  color: var(--white);
+}
+
+.advisory-card-icon {
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  color: #d8b474;
+  border: 1px solid rgba(216, 180, 116, 0.52);
+  border-radius: 999px;
+  background: rgba(6, 28, 48, 0.34);
+  backdrop-filter: blur(4px);
+}
+
+.advisory-card-icon svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.55;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.advisory-card-text h3 {
+  margin: 0 0 0.5rem;
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.32rem, 1.75vw, 1.82rem);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+.advisory-card-text p {
+  max-width: 34ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: clamp(0.9rem, 1vw, 1rem);
+  line-height: 1.48;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .advisory-image-card:hover img {
+    transform: scale(1.035);
+  }
+}
+
 .section-label,
 .form-kicker {
   color: var(--terracotta-dark);
@@ -1305,6 +1445,19 @@ button {
   .buyer-journey-image {
     flex-basis: 168px;
   }
+
+  .advisory-approach-inner {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .advisory-approach-copy {
+    max-width: 760px;
+  }
+
+  .advisory-approach-copy h2 {
+    max-width: 780px;
+  }
 }
 
 @media (max-width: 1100px) {
@@ -1375,6 +1528,10 @@ button {
     display: none;
   }
 
+  .advisory-image-card {
+    min-height: 260px;
+  }
+
   .who-grid,
   .card-grid,
   .property-grid,
@@ -1441,6 +1598,33 @@ button {
 
   .brand small {
     font-size: 0.66rem;
+  }
+
+  .advisory-approach-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .advisory-approach-copy h2 {
+    font-size: 2.62rem;
+  }
+
+  .advisory-image-card {
+    min-height: 300px;
+    border-radius: 14px;
+  }
+
+  .advisory-card-overlay {
+    gap: 0.8rem;
+  }
+
+  .advisory-card-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  .advisory-card-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .hero-copy,
